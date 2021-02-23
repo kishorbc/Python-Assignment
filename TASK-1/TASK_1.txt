@@ -1,0 +1,75 @@
+#1. Create three variables in a single line and assign values to them in such a manner that each one of
+#them belongs to a different data type.
+
+x, y, z = 2, 2.5, 'Hello World!'
+
+
+# 2. Create a variable of type complex and swap it with another variable of type integer.
+
+a_complex, b_int = 4 + 6j, 5
+a_complex, b_int = 5, 4 + 6j
+
+
+# 3. Swap two numbers using a third variable and do the same task without using any third variable.
+# Using a third variable
+var1, var2 = 4, 8
+temp = var1
+var1 = var2
+var2 = temp
+print(var1, var2)
+
+# Without using any third variable
+var1, var2 = 4, 8
+var1, var2 = 8, 4
+print(var1, var2)
+
+# 4. Write a program that takes input from the user and prints it using both Python 2.x and Python 3.x Version
+
+# Python 2.x Version
+#x = raw_input("Enter any input: ")
+#print x
+
+
+# Python 3.x Version
+x = input("Enter any input: ")
+print(x)
+
+
+# 5. Write a program to complete the task given below:
+#Ask users to enter any 2 numbers in between 1-10 , add the two numbers and keep the sum in
+# another variable called z. Add 30 to z and store the output in variable result and print result as the
+# final output.
+
+x = int(input("Enter a number between 1-10: "))
+y = int(input("Enter a number between 1-10: "))
+z = x + y
+
+result = z + 30
+print(result)
+
+
+# 6. Write a program to check the data type of the entered values.
+# HINT: Printed output should say - The data type of the input value is : int/float/string/etc
+x = eval(input("Enter a value: "))
+print('The data type of the input value is:', type(x))
+
+
+# 7.  Create Variables using formats such as Upper CamelCase, Lower CamelCase, SnakeCase and UPPERCASE.
+# (Refer: https://capitalizemytitle.com/camel-case/)
+# UpperCamelCase
+FirstName = 'Kishor'
+
+# lowerCamelCase
+firstName = 'Kishor'
+
+# snake_case
+first_name = 'Kishor'
+
+# UPPER Case
+FIRSTNAME = 'Kishor'
+
+
+# 8. If one data type value is assigned to ‘a’ variable and then a different data type value is assigned to ‘a’
+# again. Will it change the value? If Yes then Why?
+# Answer: Yes the value of variable 'a' will change since the reference to old value is lost and the variable 
+# 'a' points to a different memory location.
