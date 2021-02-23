@@ -1,0 +1,293 @@
+"""
+1. . Write a program to reverse a string.
+"""
+
+
+def string_reverse():
+    my_string = input("Enter a String to reverse: ")
+    x = len(my_string)
+    for i in range(0,x):
+        print(my_string[x-(i+1)], end='')
+
+
+string_reverse()
+
+
+"""
+2. Write a function that accepts a string and prints the number of uppercase letters and lowercase
+letters.
+Sample input: “abcSdefPghijQkl”
+Expected Output: No. of Uppercase characters : 3 No. of Lower case Characters : 12
+"""
+
+
+def function_uppercase_lowercase(my_str):
+    upper = 0
+    lower = 0
+    for i in my_str:
+        if i.isupper():
+            upper += 1
+        elif i.islower():
+            lower += 1
+    print("No. of Uppercase characters: ", upper, "No. of Lowercase characters: ", lower)
+
+
+input_string = input("Enter any string: ")
+function_uppercase_lowercase(input_string)
+
+
+
+
+"""
+3. Create a function that takes a list and returns a new list with unique elements of the first list.
+"""
+
+
+def function_unique_list(input_list):
+    count = 1
+    new_list = []
+    for i in input_list:
+        if i not in input_list[count:]:
+            new_list.append(i)
+        count += 1
+    print(new_list)
+
+
+sample_list = [10, 2, 1, 4, 5, 4, 6, 8, 9, 6, 7, 9]
+function_unique_list(sample_list)
+
+
+"""
+4. Write a program that accepts a hyphen-separated sequence of words as input and prints the words
+in a hyphen-separated sequence after sorting them alphabetically.
+"""
+
+
+def hyphen_sort(x):
+    hyphen_remove = x.split("-")
+    sorted_list = sorted(hyphen_remove)
+    new_hyphen_separated = '-'.join(sorted_list)
+    print(new_hyphen_separated)
+
+
+sample_input = input("Enter hyphen-separated sequence of words: ")
+hyphen_sort(sample_input)
+
+
+"""
+5. Write a program that accepts a sequence of lines as input and prints the lines after making all
+characters in the sentence capitalized.
+Sample input: Hello world Practice makes man perfect
+Expected output: HELLO WORLD PRACTICE MAKES MAN PERFECT
+"""
+
+user_input = input("Please enter your input: ")
+print(user_input.upper())
+
+
+
+"""
+6. . Define a function that can receive two integral numbers in string form and compute their sum and
+print it in the console.
+"""
+
+
+def function_sum_string(string1, string2):
+    total = int(string1) + int(string2)
+    print(total)
+
+
+user_input1 = input("Enter first number: ")
+user_input2 = input("Enter second number: ")
+function_sum_string(user_input1, user_input2)
+
+
+
+"""
+7. Define a function that can accept two strings as input and print the string with the maximum length
+in the console. If two strings have the same length, then the function should print both the strings line
+by line.
+"""
+
+
+def function_string_length(string1, string2):
+    if len(string1) > len(string2):
+        print(string1)
+    elif len(string2) > len(string1):
+        print(string2)
+    elif len(string1) == len(string1):
+        print(string1)
+        print(string2)
+
+
+user_input1 = input("Enter first string: ")
+user_input2 = input("Enter second string: ")
+function_string_length(user_input1, user_input2)
+
+
+
+"""
+8. Define a function which can generate and print a tuple where the values are square of numbers
+between 1 and 20 (both 1 and 20 included).
+"""
+
+
+def function_tuple():
+    my_list = []
+    for i in range(1,21):
+        my_list.append(i*i)
+    my_tuple = tuple(my_list)
+    print(my_tuple)
+
+
+function_tuple()
+
+
+
+
+"""
+9. Write a function called showNumbers that takes a parameter called limit. It should print all the
+numbers between 0 and limit with a label to identify the even and odd numbers.
+Sample input: show Numbers(3) (where limit=3)
+Expected output:
+0 EVEN
+1 ODD
+2 EVEN
+3 ODD
+"""
+
+
+def showNumber(limit):
+    for i in range(limit+1):
+        if i % 2 == 0:
+            print(i, "EVEN")
+        else:
+            print(i, "ODD")
+
+
+showNumber(3)
+
+
+
+
+"""
+10. Write a program which uses filter() to make a list whose elements are even numbers between 1
+and 20 (both included)
+"""
+
+even_list = list(filter(lambda x:x % 2 == 0, [i for i in range(1,21)]))
+print(even_list)
+
+
+
+
+"""
+11. Write a program which uses map() and filter() to make a list whose elements are squares of even
+numbers in [1,2,3,4,5,6,7,8,9,10].
+Hints: Use filter() to filter even elements of the given listUse map() to generate a list of squares of the
+numbers in the filtered list. Use lambda() to define anonymous functions.
+"""
+
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_list = list(filter(lambda i: i % 2 == 0, my_list))
+square_list = list(map(lambda j: j * j, even_list))
+print(even_list)
+print(square_list)
+
+
+
+
+"""
+12. Write a function to compute 5/0 and use try/except to catch the exceptions
+"""
+
+
+def zero_division():
+    try:
+        5/0
+    except ZeroDivisionError:
+        print("Can not divide by zero")
+
+        
+zero_division()
+
+
+
+
+
+
+"""
+13. Flatten the list [1,2,3,4,5,6,7] into 1234567 using reduce().
+"""
+
+from functools import reduce
+
+
+def function(*x):
+    j = ""
+    for i in x:
+        j += str(i)
+    return j
+
+
+my_list = [1, 2, 3, 4, 5, 6, 7]
+flattened_list = reduce(function, my_list)
+print(flattened_list)
+
+
+
+
+
+"""14. Write a program in Python to find the values which are not divisible by 3 but are a multiple of 7.
+Make sure to use only higher order functions.
+"""
+x = int(input("Enter the max number divisible by 7: "))
+my_list = list(filter(lambda x: x % 3 !=0 and x % 7 == 0, [i for i in range(x+1)]))
+print(my_list)
+
+
+
+
+
+"""
+15. Write a program in Python to multiply the elements of a list by itself using a traditional function
+and pass the function to map() to complete the operation.
+"""
+
+
+def my_function(n):
+    return n*n
+
+
+x = map(my_function, [i for i in range(20)])
+print(list(x))
+
+
+
+
+
+
+"""
+16. What is the output of the following codes:
+(i) def foo():
+try:
+return 1
+finally:
+return 2
+k = foo()
+print(k)
+
+Answer: 2
+
+(ii) def a():
+try:
+f(x, 4)
+finally:
+print('after f')
+print('after f?')
+a()
+
+Answer: NameError: name 'f' is not defined
+"""
+
+
