@@ -1,0 +1,164 @@
+"""
+1. Create a list of given structure and get the Access list as provided below:
+x=[100,200,300,400,500,[1,2,3,4,5,[10,20,30,40,50],6,7,8,9],600,700,800]
+Access list: [1, 2, 3, 4]Access list: [600, 700]
+Access list: [100, 300, 500, 600, 800]
+Access list: [[800, 700, 600, [1, 2, 3, 4, 5, [10, 20, 30, 40, 50], 6, 7, 8, 9], 500, 400, 300, 200, 100]]
+Access list: [10]
+Access list: [ ]
+"""
+
+x = [100,200,300,400,500,[1,2,3,4,5,[10,20,30,40,50],6,7,8,9],600,700,800]
+
+access_list = list(x[5][:4])
+print(access_list)
+
+access_list = list(x[6:8])
+print(access_list)
+
+access_list = list(x[::2])
+print(access_list)
+
+access_list = list(x[::-1])
+print(access_list)
+
+access_list = list(x[5][5][:1])
+print(access_list)
+
+access_list = list()
+print(access_list)
+
+
+
+"""
+2. Create a list of thousand numbers using range and xrange and see the difference between each
+other.
+"""
+
+j = list(j for j in range(1000))
+print(j)
+# xrange is not supported in python 3
+
+
+"""
+3. How Tuple is beneficial as compared to the list?
+"""
+# Tuples are immutable
+# Iteration is faster in tuple
+# Tuple consume less memory as compared to the list
+
+
+
+
+"""
+4. Write a program in Python to iterate through the list of numbers in the range of 1,100 and print
+the number which is divisible by 3 and is a multiple of 2.
+"""
+for i in range(1,100):
+    if i%3 == 0 and i%2 ==0:
+        print(i) 
+        
+        
+
+
+"""
+5. Write a program in Python to reverse a string and print only the vowel alphabet if it exists in the
+string with their index.
+"""
+my_string = 'jdhshdvobwquijkmiupmbeakdh'
+for i in (my_string[::-1]):
+    if i in ['a', 'e', 'i', 'o', 'u']:
+        print(i)
+
+
+
+"""
+6. Write a program in Python to iterate through the string “hello my name is abcde” and print the
+string which is having an even length.
+"""
+my_string = "hello my name is abcde"
+for i in my_string.split():
+    if len(i)%2 == 0:
+        print(i)
+
+
+
+"""
+7. Write a program in python to print the pair of numbers whose sum is equal to the result
+number that is let's say 8.
+x=[1,2,3,4,5,6,7,8,9,-1]
+"""
+x = [1,2,3,4,5,6,7,8,9,-1]
+for i in x:
+    for j in range(len(x)):
+        if i + x[j] == 8:
+            print(i,x[j])
+
+
+
+"""
+8. Write a program in Python to complete the following task:
+Create two lists such as even_list and odd_list
+Ask user to enter a number in the range of 1,50 and make sure if the entered number is
+even, append it to the even_list and if the entered number is odd append it to the odd_list.
+Keep that in mind you can only add 5 items in each list
+Make sure once you enter all the 5 elements, calculate the sum of the list and return the
+maximum of the list.
+"""
+
+even_list = []
+odd_list = []
+
+while True:
+    x = int(input('Enter a number: '))
+    if x%2 == 0:
+        if len(even_list) < 5:
+            even_list.append(x)
+    elif x%2 != 0:
+        if len(odd_list) < 5:
+            odd_list.append(x)
+
+    if len(even_list) == 5 and len(odd_list) == 5:
+        break
+
+print("Even list: ", sum(even_list))
+print("Odd list: ", sum(odd_list))
+
+print('Maximum sum is: ', (max(sum(even_list), sum(odd_list))))
+
+
+
+
+
+"""
+9. Write a program to find out the occurrence of a specific character from an alphanumeric string.
+Sample input: 12abcbacbaba344ab
+Expected output: a=5 b=5 c=2
+NOTE: Make sure to avoid counting the occurrence of numeric values in the string.
+"""
+
+sample_input = '12abcbacbaba344ab'
+temp = []
+for i in sample_input:
+    if i.isalpha() and i not in temp:
+        temp.append(i)
+
+for j in temp:
+    print(str(j), '=', sample_input.count(str(j)))
+
+
+
+
+"""
+10. Generate and print another tuple whose values are even numbers in the given tuple
+(1,2,3,4,5,6,7,8,9,10).
+"""
+
+temp_list = []
+for i in (1,2,3,4,5,6,7,8,9,10):
+    if i%2 == 0:
+        temp_list.append(i)
+
+new_tuple = tuple(temp_list)
+print(new_tuple)
+
